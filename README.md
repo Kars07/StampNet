@@ -83,5 +83,9 @@ To auto-format the code:
 ## Questions?
 
 For any questions or help , feel free to reach out to the Team leader or the contributors of this Repository.
+
+
 for you to download metamask click this link : [MetaMask Download](https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
+
+
 For the link of the app click on this link: [StampNet demoWebsite](https://StampNet.vercel.app.com)
