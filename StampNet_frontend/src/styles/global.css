@@ -1,0 +1,10 @@
+/* Default State */
+.main-content {
+    transition: filter 0.3s ease-in-out; /* Smooth effect */
+}
+
+/* When Scrolling */
+.main-content.scrolling {
+    filter: blur(5px); /* Adjust blur intensity */
+    pointer-events: none; /* Prevent interactions when blurred */
+}

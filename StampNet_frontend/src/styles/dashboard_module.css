@@ -1,0 +1,252 @@
+/* Ensure no interference with landing page styles */
+body.dashboard-page {
+    margin: 0;
+    padding: 0;
+} 
+
+/* ==========================
+   DASHBOARD HEADER STYLES
+   ========================== */
+.dashboard-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #ccc; 
+    color: black;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+/* Left Section: Menu + Title */
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.menu-icon {
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.dashboard-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Right Section: Notifications + User */
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.notification {
+    position: relative;
+    cursor: pointer;
+}
+
+.bell-icon {
+    font-size: 1.5rem;
+}
+
+/* User Dropdown */
+.user-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.chevron-down {
+    font-size: 1.2rem;
+}
+
+/* ==========================
+   DASHBOARD SIDEBAR STYLES
+   ========================== */
+.dashboard-sidebar {
+    margin-top: 2rem;
+    width: 250px;
+    height: calc(100vh - 60px);
+    background-color: #02101E;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-nav-links {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar-nav-links li {
+    width: 100%;
+    padding: 15px 20px;
+    transition: background 0.3s;
+}
+
+.sidebar-nav-links li:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-nav-links li a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ==========================
+   DASHBOARD CONTENT STYLES
+   ========================== */
+.contents {
+    background-color: white;
+    /* margin-top: 2rem; */
+    padding: 8em 2em;
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+/* File Upload Box */
+.first {
+    color: black;
+    border: 5px dotted blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4em;
+    width: 700px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.first h3 {
+    font-size: 18px;
+    margin-bottom: 1em;
+}
+
+.first:hover {
+    background-color: #fff;
+}
+
+/* Button Styling */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    margin-top: 1.5em;
+}
+
+.primary-button,
+.secondary-button,
+.tertiary-button {
+    padding: 12px 18px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.primary-button {
+    background-color: #D43BFF;
+    color: white;
+}
+
+.secondary-button {
+    background-color: #5D5FEF;
+    color: white;
+}
+
+.tertiary-button {
+    background-color: #FF914D;
+    color: white;
+}
+
+button:disabled {
+    background-color: #888;
+    cursor: not-allowed;
+}
+
+/* File Information Box */
+.second {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    color: black;
+    align-items: center;
+    padding: 3em;
+    border: 5px solid blue;
+    height: 400px;
+    width: 600px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* Arrow Indicator */
+.contents .arrow {
+    color: blue;
+    padding-right: 1rem;
+}
+.arrow img {
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ==========================
+   DASHBOARD FOOTER STYLES
+   ========================== */
+.dashboard-footer {
+    padding: 1em;
+    text-align: center;
+}
+
+.dashboard-footer h3 {
+    font-weight: 100;
+    font-size: medium;
+    margin-top: -100px;
+}
+
+/* Timestamps Panel */
+.timestamps-panel {
+    position: fixed;
+    top: 60px;
+    left: -260px;
+    width: 250px;
+    height: calc(100vh - 60px);
+    background-color: rgba(20, 20, 30, 0.95);
+    color: white;
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 2px solid purple;
+    transition: left 0.3s ease-in-out;
+}
+
+.timestamps-panel.show {
+    left: 0;
+}

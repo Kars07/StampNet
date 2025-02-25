@@ -1,0 +1,110 @@
+.about-us-container {
+  padding: 5em 2em;
+}
+
+/* About Us Title with Lines */
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5em 0;
+  position: relative;
+}
+
+/* Flexbox container for the title and lines */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Left line */
+.label1-line {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(to right, #df33ce, transparent);
+  margin-right: 10px;
+}
+
+/* Right line */
+.label2-line {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(to left, #64b8dc, transparent);
+  margin-left: 10px;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(to right, #df33ce, #64b8dc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Subtitle under the About Us heading */
+.wrap span {
+  font-size: 18px;
+  color: rgb(152, 155, 157);
+}
+
+/* Philosophy content */
+.letter-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 5em;
+  font-size: 15px;
+  color: rgb(152, 155, 157);
+}
+
+  
+  .Teams h1 {
+    text-align: center;
+    padding: 6em 0em;
+  }
+
+  .Teams {
+    margin-bottom: 8rem;
+  }
+  
+  .images {
+    max-width: 100%;
+    padding: 0em 2em;
+    display: grid;
+    grid-template-columns: 335px 335px 335px;
+    column-gap: 3em;
+    row-gap: 3em;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+
+  .image-contents img {
+    width: 300px;
+    height: 360px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  
+  .none {
+    opacity: 0;
+  }
+
+  .about-name{
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .about-image{
+    text-align: center;
+  }
+  

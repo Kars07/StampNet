@@ -1,0 +1,107 @@
+.slide-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slide-container .slide-wrapper h1 {
+  background: linear-gradient(to right, #df33ce, #64b8dc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  font-size: 30px;
+  padding-left: 26rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-wrapper {
+  margin: 0 auto;
+  padding: 20px 10px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  padding: 0 9px; /* Adds spacing between slides */
+}
+
+.slide-item {
+  list-style: none;
+  flex: 1;
+}
+
+.slide-item .slide-link {
+  user-select: none;
+  display: block;
+  background: #171821;
+  padding: 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  padding-top: 4rem;
+  height: 500px;
+  border: 2px solid transparent;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+  transition: 0.2s ease;
+}
+
+.slide-item .slide-link:hover {
+  border-color: #5372F0;
+}
+
+.slide-item .slide-link h2 {
+   font-size: 20px;
+   padding-bottom: 1rem;
+}
+
+.slide-link .slide-image {
+  width: 100%; /* Adjusted image size */
+  max-width: 1000px; /* Set a max width */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+.slide-link .slide-badge {
+  color: #5372F0;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 16px 0 18px;
+  background: #DDE4FF;
+  width: fit-content;
+  border-radius: 50px;
+}
+
+.slide-link .slide-badge.designer {
+  color: #B22485;
+  background: #F7DFF5;
+}
+.slide-link .slide-badge.marketer {
+  color: #825A2B;
+  background: #F7DFF5;
+}
+.slide-link .slide-badge.gamer {
+  color: #205C20;
+  background: #F7DFF5;
+}
+.slide-link .slide-badge.editor {
+  color: #856404;
+  background: #F7DFF5;
+}
+
+.slide-link .slide-title {
+  font-size: 1.19rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Swiper Navigation */
+.swiper-button-prev, .swiper-button-next {
+  color: white;
+}
