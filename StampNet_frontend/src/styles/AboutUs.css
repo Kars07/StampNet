@@ -63,9 +63,12 @@
   padding: 2em 5em;
   font-size: 15px;
   color: rgb(152, 155, 157);
+  
 }
 
-  
+  .letter-content h2{
+    color: rgb(159, 167, 167);
+  }
   .Teams h1 {
     text-align: center;
     padding: 6em 0em;
@@ -76,7 +79,7 @@
   }
   
   .images {
-    max-width: 100%;
+    width: 100%;
     padding: 0em 2em;
     display: grid;
     grid-template-columns: 335px 335px 335px;
@@ -94,7 +97,6 @@
     object-fit: cover;
   }
   
-  
   .none {
     opacity: 0;
   }
@@ -107,4 +109,60 @@
   .about-image{
     text-align: center;
   }
-  
+  /* wura */
+  .hidden{
+    opacity: 0;
+  }
+  @media (max-width:650px){
+    .about-us-container {
+      padding: 5em 0em;
+    }
+  /* Philosophy content */
+  .letter-content {
+    gap: 2em;
+    padding: 2em 2.5em;
+    font-size: 10px;
+  }
+  .hidden{
+    display: none;
+  }
+    
+    .Teams h1 {
+      padding: 4em 0em;
+    }
+
+    .Teams {
+      margin-bottom: 8rem;
+    }
+    
+    .images {
+      padding: 0em 2em;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .image-contents{
+      width: 100%;
+    }
+    .image-contents img {
+      width: 100%; 
+      height: 100%;
+      border-radius: 10px;
+    }
+    
+    
+    .none {
+      opacity: 0;
+    }
+
+    .about-name{
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .about-image{
+      text-align: center;
+    }  
+
+
+  }
