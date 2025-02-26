@@ -11,6 +11,7 @@ body {
   color: white;
   -webkit-font-smoothing: antialiased;
   background-color: #0f101c;
+  overflow-x:hidden ;
 }
 
 html.w-mod-touch * {
@@ -142,6 +143,7 @@ color: #df33ce;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px; 
+  
 }
 
 /* Left Side - Text Section */
@@ -149,6 +151,8 @@ color: #df33ce;
   display: flex;
   align-items: center;
   gap: 10px;
+  
+  
 }
 
 .text-header h4 {
@@ -166,6 +170,7 @@ color: #df33ce;
 
 .text-section {
   max-width: 50%;
+  
 }
 
 .text-section #small {
@@ -518,6 +523,7 @@ color: #ccc;
   font-size: 14px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+ 
 }
 
 .join-btn:hover {
@@ -527,11 +533,10 @@ color: #ccc;
 .footer-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: start;
   align-items: flex-start;
   padding-top: 60px;
   max-width: 1200px;
-  margin: auto;
   position: relative;
 }
 
@@ -621,4 +626,142 @@ color: #ccc;
   background-color: #1c1c1c; 
   margin: 20px 0; 
   border: none; 
+ 
+}
+
+
+.hamburger{
+  display: none;
+}
+
+@media (max-width:650px){
+
+/* Header & Navbar */
+header {
+  margin-top: 0;
+  width: 100%;
+  display: flex;
+}
+  /* Responsive Navbar */
+  .hamburger {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+  }
+}
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block; /* Show hamburger icon */
+    }
+  
+    .nav-links {
+      display: none; /* Hide navbar links */
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: rgba(22, 22, 24, 0.9);
+      flex-direction: column;
+      text-align: center;
+      padding: 10px 0;
+      border-radius: 0 0 20px 20px;
+    }
+  
+    .nav-links.open {
+      display: flex; /* Show menu when open */
+    }
+  
+    .nav-links.closed {
+      display: none; /* Hide menu when closed */
+    }
+  
+    .nav-links li {
+      margin: 10px 0;
+    }
+  
+    .social-icons {
+      display: none; /* Hide social icons on mobile */
+    }
+  
+    .navbar {
+    display: flex;
+    border-radius: 0px;
+    width: 100%;
+    }
+      
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content:start; /* Pushes items to opposite ends */
+  align-items: start; /* Aligns items vertically */
+  padding: 2em 0em 0em;
+  gap: 0rem;
+  color: white;
+  font-size: 14px;
+  width: 100%;
+}
+.footer-social-icons {
+  display: flex;
+  gap: 15px; 
+  padding: 1em 0em;
+  margin-left: 0;
+}
+
+/* Subscribe Section */
+.subscribe {
+  margin-top: 0rem;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: transparent;
+  margin-right: 0rem;
+  width: 100%;
+
+}
+
+/* Input Field Container */
+.input-container {
+  display: flex;
+  align-items: center;
+  background: #121212;
+  border-radius: 30px;
+  margin-left: 0rem;
+  padding: 10px 15px;
+  width: 100%; /* Adjust width as needed */
+ 
+}
+
+.footer-column {
+  margin-right: 7rem;
+}
+
+.text-section {
+  max-width: 100%;
+}
+
+.text-section h1 {
+  font-size: 40px;
+}
+
+
+.user-container p {
+  max-width: 100%;
+}
+.first-container {
+  gap:1.5em;
+  flex-direction: column;
+  padding: 0px 10%;
+ }
+  
+  .first-content {
+  max-width: 80%; /* Ensure text does not stretch too much */
+  
+}
+  
+  .first-container h1 {
+  padding: 0em 0em 0.3em 0em;
+  }
+  
 }

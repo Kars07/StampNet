@@ -16,7 +16,7 @@ const AboutUs = () => {
 
       {/* Our Philosophy Section */}
       <div className="letter-content">
-        <h2 className="gradient-text">Our Philosophy</h2>
+        <h1 className="gradient-text">Our Philosophy</h1>
         <h2>
           We're building a future where verification isn't just tied to paperwork but to irrefutable proof—where timestamps serve as unquestionable evidence of authenticity, secured through blockchain technology.
         </h2>
@@ -51,6 +51,11 @@ const AboutUs = () => {
             <img src="/images/about5.jpg" alt="Omilabu Wuraola" />
             <h2 className="about-name">Omilabu Wuraola</h2>
             <h3 className="about-image">Frontend Developer</h3>
+          </div>
+          <div className="image-contents hidden">
+            <img src="/images/about4.jpg" alt="Abibi Daniella" />
+            <h2 className="about-name">Abibi Daniella</h2>
+            <h3 className="about-image">Backend Developer</h3>
           </div>
           <div className="image-contents">
             <img src="/images/about4.jpg" alt="Abibi Daniella" />
