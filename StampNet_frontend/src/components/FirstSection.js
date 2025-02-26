@@ -9,7 +9,7 @@ const FirstSection = () => {
           Explore Digital Security with <span className="first-highlight">StampNet</span>
         </h1>
         <p>
-          Start with StampNet to enhance your digital data’s security and authenticity.
+          Start with StampNet to enhance your digital data's security and authenticity.
           Transform your data management with blockchain technology today!
         </p>
       </div>
