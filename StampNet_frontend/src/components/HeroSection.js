@@ -35,8 +35,18 @@ const HeroSection = () => {
                         creating<span className="highlight"> immutable</span> and verifiable records without storing sensitive data. Start your journey 
                         towards secure and verifiable <span className="highlight">data management</span> 🚀.
                     </p>
-                    <a href='/register'><button className="demo-btn">Get Started &gt;</button></a>
+                    <a href='/register'><button className="demo-btn">Get Started</button></a>
                 </div>
+                <div className='container-img'>
+                   <div className='Layer'>
+
+                   </div>
+                   <div className='Image'>
+                    <img src="/images/user_photo-removebg-preview.png" width={500} />
+
+                   </div>
+                </div>
+
             </div>
 
             {/* User Container */}
