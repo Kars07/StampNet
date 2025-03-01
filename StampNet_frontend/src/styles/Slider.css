@@ -1,4 +1,3 @@
-/* CSS */
 .slide-container {
   width: 100%;
   max-width: 1200px;
@@ -17,15 +16,19 @@
   margin-bottom: 1rem;
   align-items: center;
   justify-content: center;
+  
 }
 
 .slide-wrapper {
   margin: 0 auto;
   padding: 20px 10px;
+  
+  
 }
 
 .swiper {
   width: 100%;
+  
 }
 
 .swiper-slide {
@@ -81,6 +84,7 @@
   background: #DDE4FF;
   width: fit-content;
   border-radius: 50px;
+  
 }
 @media (max-width: 480px) {
   .slide-container .slide-wrapper h1 {
@@ -88,18 +92,15 @@
     text-align: center;
     font-size: 24px;
     
-   
   }
-
   .swiper {
-    width: 100;
-    height: 100vh; /* Ensure swiper takes full screen */
-   
+    width: 100%;
+    height: 75vh;
   }
 
   .swiper-slide {
-    width: 100vw; /* Ensure full width */
-    height: 100vh; /* Ensure full height */
+    width: 100vw; 
+    height: 80vh; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,8 +108,8 @@
 
   .slide-item {
     flex: 1;
-    width: 100vw; /* Ensure full width */
-    height: 100vh; /* Ensure full height */
+    width: 100vw; 
+    height: 100vh;
   }
 
   .slide-item .slide-link {
@@ -119,5 +120,16 @@
     justify-content: center;
     align-items: center; 
     margin-left: -17.5em;
+    
+  }
+}
+
+@media (max-width: 768px) {
+  .slide-container .slide-wrapper h1 {
+    text-align: center; 
+    font-size: 24px;
+    padding-left: 0; 
+    margin: 0 auto;
+    padding-bottom: 1rem;
   }
 }

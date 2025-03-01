@@ -54,7 +54,7 @@ const DashboardHeader = () => {
   function handleLogout() {
     localStorage.removeItem("user");
     localStorage.removeItem("walletAddress");
-    navigate("/login");
+    navigate("/register");
   }
 
   return (
