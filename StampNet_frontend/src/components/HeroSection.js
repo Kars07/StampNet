@@ -38,9 +38,6 @@ const HeroSection = () => {
                     <a href='/register'><button className="demo-btn">Get Started</button></a>
                 </div>
                 <div className='container-img'>
-                   <div className='Layer'>
-
-                   </div>
                    <div className='Image'>
                     <img src="/images/user_photo-removebg-preview.png" width={500} />
 

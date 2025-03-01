@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode"; // To decode user info
 import { ethers } from "ethers";
-import "../../styles/authstyle.css"; 
+import "../../styles/authstyle.css";
 import "boxicons/css/boxicons.min.css";
 import { useNavigate } from "react-router-dom";
+import metamaskLogo from "../../assest/metamask-logo.jpg";
+
 
 const Register = () => {
   const [walletAddress, setWalletAddress] = useState("");
@@ -47,7 +49,6 @@ const Register = () => {
 
       // Redirect to dashboard
       navigate("/dashboard");
-
     } catch (error) {
       console.error("MetaMask connection error:", error);
       alert("Failed to connect MetaMask.");
@@ -69,8 +70,9 @@ const Register = () => {
             />
           </div>
 
-          {/* MetaMask Sign-In */}
+          {/* MetaMask Sign-In Styled Like Google Button */}
           <button onClick={connectMetaMask} className="Authregister-button metamask">
+            <img src={metamaskLogo} alt="MetaMask Logo" className="Authregister-logo" />
             Sign in with MetaMask
           </button>
 

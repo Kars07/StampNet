@@ -53,14 +53,15 @@ const Footer = () => {
         <div class="footer-bottom">
             &copy;2025. All rights reserved.
             <div class="footer-social-icons">
-                <i class='bx bx-x'></i>
+                <a href="https://x.com/TeamAlphaDev" target="_blank" rel="noopener noreferrer" ><i className="bx bxl-twitter"></i></a>
+                <a href="https://github.com/Kars07/StampNet" target="_blank" rel="noopener noreferrer"><i className="bx bxl-github"></i></a>
+                <a href="https://www.youtube.com/watch?v=sScVIg0nfC4&t=9s" target="_blank" rel="noopener noreferrer"><i className="bx bxl-youtube"></i></a>
                 <i class='bx bxl-linkedin'></i>
-                <i class='bx bxl-github'></i>
-                <i class='bx bxl-youtube'></i>
             </div>
         </div>
     </footer> 
   );
+
 };
 
 export default Footer;

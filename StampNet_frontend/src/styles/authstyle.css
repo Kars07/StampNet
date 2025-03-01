@@ -189,12 +189,13 @@
   
 .Authregister-box {
     background: #171821;
-    padding: 2rem;
+    padding: 2rem ;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
     text-align: center;
     width: 100%;
     max-width: 400px;
+   
 }
   
 .Authregister-title {
@@ -254,23 +255,15 @@
     margin: 3px 0;
 }
   
-.valid {
-    color: #4caf50;
-}
-  
-.invalid {
-    color: #f44336;
-}
-  
 .Authregister-confirm-msg {
     font-size: 0.9rem;
     color: #fff;
 }
   
 .Authregister-button {
-    background: linear-gradient(90deg, #ff67ff, #f8d03f);
+    background: white;
     border: none;
-    color: white;
+    color: #000;
     padding: 12px;
     font-size: 1rem;
     border-radius: 10px;
@@ -282,6 +275,33 @@
 .Authregister-button:hover {
     opacity: 0.85;
 }
+
+.Authregister-button.metamask {
+    display: flex;
+    align-items: center; 
+    justify-content: space-around; 
+    gap: 60px; 
+    background: white;
+    border: none;
+    color: #000000b1;
+    padding: 10px;
+    padding-right: 50px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 100;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.Authregister-logo {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle; /* Helps with alignment */
+}
+
+
   
 .Authregister-footer {
     margin-top: 1rem;
@@ -294,4 +314,16 @@
     text-decoration: none;
     font-weight: bold;
 }
-
+@media (max-width:700px){
+    
+.Authregister-button.metamask {
+    gap: 20px; 
+    padding-right: 25px;
+    
+}
+ 
+.Authregister-box {
+    padding: 2rem 1em;
+    
+}
+}

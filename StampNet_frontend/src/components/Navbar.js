@@ -29,32 +29,33 @@ const Navbar = () => {
   return (
     <header>
       <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-        <div className="navbar-content">
+      <div className="navbar-content">
           {/* Logo */}
           <div className="logo">
-            <img className="navbar_logo" src="images/navbar_logo.png" alt="Logo" />
-          </div>
+            <a href="/"><img className="navbar_logo" src="images/navbar_logo.png" alt="Logo" /></a>
+         </div>
 
           {/* Hamburger Menu Icon (Only on Mobile) */}
           <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
             <i className={menuOpen ? "bx bx-x" : "bx bx-menu"}></i>
           </div>
 
-          {/* Navigation Links */}
-          <ul className={`nav-links ${isMobile ? (menuOpen ? "open" : "closed") : ""}`}>
+           {/* Navigation Links */}
+           <ul className={`nav-links ${isMobile ? (menuOpen ? "open" : "closed") : ""}`}>
+
             <li><a href="#">Products <i className="bx bx-chevron-down"></i></a></li>
             <li><a href="#">Docs</a></li>
             <li><a href="#">Case Studies <i className="bx bx-chevron-down"></i></a></li>
             <li><a href="/about-us">About</a></li>
             <li><a href="#">News</a></li>
-            <li><a href="#" className="pass">Get a Pass</a></li>
+            <li><a href="/register" className="pass">Get a Pass</a></li>
           </ul>
 
           {/* Social Icons (Always visible) */}
           <div className="social-icons">
-            <i className="bx bxl-linkedin"></i>
-            <i className="bx bxl-github"></i>
-            <i className="bx bxl-youtube"></i>
+            <a href="https://x.com/TeamAlphaDev" target="_blank" rel="noopener noreferrer" ><i className="bx bxl-twitter"></i></a>
+            <a href="https://github.com/Kars07/StampNet" target="_blank" rel="noopener noreferrer"><i className="bx bxl-github"></i></a>
+            <a href="https://www.youtube.com/watch?v=sScVIg0nfC4&t=9s" target="_blank" rel="noopener noreferrer"><i className="bx bxl-youtube"></i></a>
           </div>
         </div>
       </nav>
