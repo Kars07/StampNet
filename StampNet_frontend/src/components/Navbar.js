@@ -44,7 +44,7 @@ const Navbar = () => {
            <ul className={`nav-links ${isMobile ? (menuOpen ? "open" : "closed") : ""}`}>
 
             <li><a href="#">Products <i className="bx bx-chevron-down"></i></a></li>
-            <li><a href="#">Docs</a></li>
+            <li><a href="/docs">Docs</a></li>
             <li><a href="#">Case Studies <i className="bx bx-chevron-down"></i></a></li>
             <li><a href="/about-us">About</a></li>
             <li><a href="#">News</a></li>

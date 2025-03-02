@@ -56,7 +56,7 @@ const Slider = () => {
           {Slides.map((slide, index) => (
             <SwiperSlide key={index}>
               <div className="slide-item">
-                <a href="#" className="slide-link">
+                <a className="slide-link">
                   <img src={slide.src} alt={slide.label} className="slide-image" />
                   <p className={`slide-badge ${slide.label.toLowerCase().replace(/\s/g, "-")}`}>
                     {slide.label}

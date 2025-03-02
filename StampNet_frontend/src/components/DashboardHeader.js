@@ -57,25 +57,32 @@ const DashboardHeader = () => {
     navigate("/register");
   }
 
+  // Truncate the wallet address for better display
+  const getDisplayAddress = (address) => {
+    return address.length > 10 ? `${address.slice(0, 6)}...${address.slice(-4)}` : address;
+  };
+
   return (
     <div className="dashboard-header">
       <div className="left-section">
         <i className="bx bx-menu menu-icon"></i>
-        <h1 className="dashboard-title">StampNet - Dashboard</h1>
+        <h1 className="dashboard-title">Dashboard</h1>
       </div>
-  
+
       <div className="right-section">
         <div className="notification">
           <i className="bx bx-bell bell-icon"></i>
         </div>
-  
+
         <div className="user-dropdown" onClick={() => setShowDropdown(!showDropdown)}>
-          <span>{walletAddress || userEmail || "User"}</span>
+          <span className="user-name">{walletAddress ? getDisplayAddress(walletAddress) : userEmail || "User"}</span>
           <i className="bx bx-chevron-down chevron-down"></i>
-  
+
           {showDropdown && (
             <ul className="dropdown-menu">
-              <p className="dropdown-header">Signed in as <strong>{userEmail || walletAddress}</strong></p>
+              <p className="dropdown-header">
+                Signed in as <strong>{userEmail || walletAddress}</strong>
+              </p>
               {!walletAddress ? (
                 <li onClick={connectMetaMask}>🔌 Connect Wallet</li>
               ) : (
