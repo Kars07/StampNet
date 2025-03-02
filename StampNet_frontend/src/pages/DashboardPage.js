@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ethers } from "ethers";
+import { BrowserProvider, ethers } from "ethers";
 import "../styles/dashboard_module.css";
 import DashBoardHeader from "../components/DashboardHeader";
 
@@ -8,7 +8,8 @@ const CONTRACT_ADDRESS = "0xe9d02f9C55Bf9f9F92F9443d0e572339516AaE5F";
 const ABI = [
     "function storeHash(bytes32,uint64) external",
     "function hashDocument() external view returns (bytes32, uint64)",
-    "function verifyDocument(bytes32,uint64) external view returns (bool)"
+    "function verifyDocument(bytes32,uint64) external view returns (bool)",
+    "function getAllStoredHashesAndTimestamps() external view returns (address[], bytes32[], uint64[])"
 ];
 
 const DashboardPage = () => {
@@ -19,6 +20,7 @@ const DashboardPage = () => {
     const [storedTimestamp, setStoredTimestamp] = useState("");
     const [isVerified, setIsVerified] = useState(null);
     const [walletAddress, setWalletAddress] = useState("");
+    // const provider = new ethers.providers.Web3Provider(window.ethereum);
 
     // Ensure storedHash updates properly on mobile
     useEffect(() => {
@@ -115,30 +117,32 @@ const DashboardPage = () => {
     }
 
     // Store file hash on blockchain
-    async function storeDocumentHash() {
-        if (!walletAddress) {
-            await connectWallet();
-        }
-
-        const contract = await getContract();
-        if (!contract) return;
-
-        try {
-            const timestamp = Math.floor(Date.now() / 1000);
-            const tx = await contract.storeHash(hash, timestamp);
-            await tx.wait();
-            setTransactionHash(tx.hash);
-            setStoredHash(hash);  // Update storedHash immediately
-
-            // Force UI update
-            setTimeout(() => {
-              alert("✅ Hash stored on blockchain!");
-            }, 100);
-
-        } catch (error) {
-            console.error("Blockchain error:", error);
-        }
+async function storeDocumentHash() {
+    if (!walletAddress) {
+        await connectWallet();
     }
+
+    const contract = await getContract();
+    if (!contract) return;
+
+    try {
+        const timestamp = Math.floor(Date.now() / 1000);
+        const tx = await contract.storeHash(hash, timestamp);
+        await tx.wait();
+        setTransactionHash(tx.hash);
+        setStoredHash(hash);  // Update storedHash immediately
+
+        // Fetch timestamp immediately after storing the hash
+        await fetchStoredDocument();  
+
+        // Optional UI update delay
+        // setTimeout(() => {
+        //     alert("✅ Hash stored on blockchain!");
+        // }, 100);
+    } catch (error) {
+        console.error("Blockchain error:", error);
+    }
+}
 
     // Retrieve stored document hash & timestamp
     async function fetchStoredDocument() {
@@ -157,19 +161,76 @@ const DashboardPage = () => {
 
     // Verify if uploaded document matches stored hash
     async function verifyDocument() {
-        const contract = await getContract();
-        if (!contract) return;
-
+        if (!window.ethereum) {
+            console.error("MetaMask is not installed!");
+            alert("⚠️ MetaMask is not detected.");
+            return;
+        }
+    
         try {
-            const [retrievedHash, retrievedTimestamp] = await contract.hashDocument();
-            const result = await contract.verifyDocument(hash, retrievedTimestamp);
-
-            setIsVerified(result);
-            alert(result ? "✅ Document is valid!" : "❌ Document is invalid!");
+            // Ensure wallet is connected
+            const provider = new ethers.BrowserProvider(window.ethereum);
+            const signer = await provider.getSigner();
+            const walletAddress = await signer.getAddress();
+            
+            if (!walletAddress) {
+                alert("⚠️ Please connect your wallet before verifying a document.");
+                return;
+            }
+    
+            const contract = await getContract();
+            if (!contract) {
+                console.error("⚠️ Contract instance is not available.");
+                alert("⚠️ Contract not found.");
+                return;
+            }
+    
+            console.log("📡 Fetching stored hashes from blockchain...");
+    
+            // Call the contract function
+            const [userAddresses, storedHashes, storedTimestamps] = await contract.getAllStoredHashesAndTimestamps();
+    
+            console.log("📜 Retrieved Addresses:", userAddresses);
+            console.log("🔢 Retrieved Hashes:", storedHashes);
+            console.log("🕒 Retrieved Timestamps:", storedTimestamps);
+    
+            if (userAddresses.length === 0) {
+                console.error("⚠️ No stored hashes found.");
+                alert("⚠️ No documents found on the blockchain.");
+                return;
+            }
+    
+            // Convert user input to match stored format
+            const inputHash = hash;  // Ensure this is in bytes32 format
+            const userWallet = walletAddress.toLowerCase();  // Convert address to lowercase for comparison
+    
+            // Find if the stored hash matches the uploaded document's hash
+            let isValid = false;
+            for (let i = 0; i < userAddresses.length; i++) {
+                const storedAddress = userAddresses[i].toLowerCase();
+                const storedHash = storedHashes[i];
+    
+                console.log(`🔍 Checking: Address(${storedAddress}), Hash(${storedHash})`);
+    
+                if (storedAddress === userWallet && storedHash === inputHash) {
+                    isValid = true;
+                    break;
+                }
+            }
+    
+            setIsVerified(isValid);
+            alert(isValid ? "✅ Document is valid!" : "❌ Document is invalid!");
         } catch (error) {
-            console.error("Verification error:", error);
+            console.error("🚨 Verification error:", error);
+            alert("⚠️ Error verifying document. Please try again.");
         }
     }
+    
+    
+    
+    
+    
+    
 
     return (
         <div className="contents">
@@ -189,7 +250,7 @@ const DashboardPage = () => {
 
                 <div className="button-group">
                     <button className="primary-button" onClick={storeDocumentHash} disabled={!hash}>Store Hash</button>
-                    <button className="secondary-button" onClick={fetchStoredDocument}>Fetch Timestamp</button>
+                    {/* <button className="secondary-button" onClick={fetchStoredDocument}>Fetch Timestamp</button> */}
                     <button className="tertiary-button" onClick={verifyDocument} disabled={!hash}>Verify Document</button>
                 </div>
             </div>
@@ -210,7 +271,12 @@ const DashboardPage = () => {
                 
                 <p>🕒 Timestamp: {storedTimestamp || "Not Fetched"}</p>
                 
-                {isVerified !== null && <p>✅ Verification Result: {isVerified ? "Valid" : "Invalid"}</p>}
+                {isVerified !== null && (
+                   <p>
+                       {isVerified ? "✅ Verification Result: Valid" : "❌ Verification Result: Invalid"}
+                   </p>
+                )}
+
                 
                 {transactionHash && (
                     <div className="hash-container">
