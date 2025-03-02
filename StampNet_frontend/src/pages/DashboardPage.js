@@ -127,9 +127,14 @@ const DashboardPage = () => {
             const timestamp = Math.floor(Date.now() / 1000);
             const tx = await contract.storeHash(hash, timestamp);
             await tx.wait();
-
             setTransactionHash(tx.hash);
-            alert("✅ Hash stored on blockchain!");
+            setStoredHash(hash);  // Update storedHash immediately
+
+            // Force UI update
+            setTimeout(() => {
+              alert("✅ Hash stored on blockchain!");
+            }, 100);
+
         } catch (error) {
             console.error("Blockchain error:", error);
         }
@@ -184,7 +189,7 @@ const DashboardPage = () => {
 
                 <div className="button-group">
                     <button className="primary-button" onClick={storeDocumentHash} disabled={!hash}>Store Hash</button>
-                    <button className="secondary-button" onClick={fetchStoredDocument}>Fetch Stored Hash</button>
+                    <button className="secondary-button" onClick={fetchStoredDocument}>Fetch Timestamp</button>
                     <button className="tertiary-button" onClick={verifyDocument} disabled={!hash}>Verify Document</button>
                 </div>
             </div>
