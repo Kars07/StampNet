@@ -13,6 +13,7 @@ import DashboardLayout from "./layouts/DashboardLayout";
 import DashboardPage from "./pages/DashboardPage";
 import DashboardHeader from "./components/DashboardHeader";
 import FAQ from "./components/FAQ";
+import Docs from "./components/Docs";
 import "./styles/global.css";
 import MyTimestamps from "./pages/MyTimestamps";
 import FirstSection from "./components/FirstSection";
@@ -31,11 +32,12 @@ const MainContent = () => {
   const isAuthPage = authPages.includes(location.pathname);
   const isDashboard = location.pathname.startsWith("/dashboard");
   const isMyTimestamps = location.pathname === "/my-timestamps";
+  const isDocsPage = location.pathname === "/docs";
 
   return (
     <>
-      {/* Show Navbar for non-auth, non-dashboard, and non-my-timestamps pages */}
-      {!isAuthPage && !isDashboard && !isMyTimestamps && <Navbar />}
+      {/* Show Navbar for non-auth, non-dashboard, non-my-timestamps, and non-docs pages */}
+      {!isAuthPage && !isDashboard && !isMyTimestamps && !isDocsPage && <Navbar />}
 
       <div className="main-content">
         <Routes>
@@ -78,6 +80,7 @@ const MainContent = () => {
           />
           
           <Route path="/my-timestamps" element={<MyTimestamps />} />
+          <Route path="/docs" element={<Docs />} />
         </Routes>
       </div>
     </>

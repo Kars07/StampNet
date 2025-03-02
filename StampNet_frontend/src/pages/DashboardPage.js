@@ -165,7 +165,13 @@ const DashboardPage = () => {
                 <input type="file" onChange={handleFileChange} />
                 <h3>Choose a file or drag it here</h3>
                 {file && <p>Selected: {file.name}</p>}
-                {hash && <p>Generated Hash: {hash}</p>}
+    
+                {hash && (
+                    <div className="hash-container">
+                        <p className="hash-text">{hash}</p>
+                        <button className="copy-button" onClick={() => navigator.clipboard.writeText(hash)}>📋 Copy</button>
+                    </div>
+                )}
 
                 <div className="button-group">
                     <button className="primary-button" onClick={storeDocumentHash} disabled={!hash}>Store Hash</button>
@@ -173,6 +179,7 @@ const DashboardPage = () => {
                     <button className="tertiary-button" onClick={verifyDocument} disabled={!hash}>Verify Document</button>
                 </div>
             </div>
+
 
             <div className="arrow">
                 <img src="/images/back-arrow-icon.png" alt="Back Arrow" />

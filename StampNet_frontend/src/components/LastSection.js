@@ -9,7 +9,7 @@ const LastSection = () => {
         Experience the next level of digital security and authenticity with StampNet.
         Begin your journey towards tamper-proof data integrity.
       </p>
-      <button className="last-button">Try StampNet Now</button>
+      <a href="/register"><button className="last-button">Try StampNet Now</button></a>
     </div>
   );
 };

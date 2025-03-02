@@ -1,0 +1,49 @@
+/* Docs.css */
+.docs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.docs-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.docs-content {
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.docs-content #notice {
+  color: rgba(0, 0, 255, 0.382);
+}
+
+
+@media screen and (max-width: 768px) {
+  .docs-container {
+    padding: 15px;
+  }
+  .docs-title {
+    font-size: 1.8rem;
+  }
+  .docs-content {
+    font-size: 1rem;
+  }
+
+  .docs-content ul{
+    padding-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .docs-title {
+    font-size: 1.5rem;
+  }
+  .docs-content {
+    font-size: 0.9rem;
+  }
+}
