@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-body {
+body, html{
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -12,6 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: #0f101c;
   overflow-x:hidden ;
+  max-width: 100%;
 }
 
 html.w-mod-touch * {
@@ -59,7 +60,7 @@ justify-content: space-between;
 width: 100%;
 }
 
-/* Logo Styling */
+
 .navbar .logo {
 display: flex;
 align-items: center;
@@ -67,7 +68,7 @@ align-items: center;
 
 .navbar_logo {
 padding-top: 7px;
-width: 145px; /* Adjust size as needed */
+width: 145px; 
 height: auto;
 }
 
@@ -115,7 +116,7 @@ font-weight: bold;
 .social-icons {
 display: flex;
 align-items: center;
-gap: 10px; /* Ensures spacing between icons */
+gap: 10px; 
 }
 
 .social-icons i {
@@ -129,10 +130,21 @@ transition: 0.3s;
 color: #df33ce;
 }
 
+h1, p {
+  word-wrap: break-word; 
+  white-space: normal;
+}
+
+button {
+  max-width: 100%;
+}
+
 
 /* Main Container */
 .container {
   width: 90%;
+  overflow-x: hidden;
+  box-sizing: border-box;
   max-width: 1200px;
   margin: 11rem auto; 
   padding: 20px;
@@ -378,16 +390,16 @@ input {
  /* First section Styling */
 /* First section Styling */
 .first-container {
-display: flex; /* Align items in a row */
-align-items: center; /* Vertically center content */
-justify-content: space-between; /* Push content to the edges */
+display: flex; 
+align-items: center;
+justify-content: space-between; 
 padding: 50px 10%;
 color: white;
-text-align: left; /* Align text to the left */
+text-align: left; 
 }
 
 .first-content {
-max-width: 80%; /* Ensure text does not stretch too much */
+max-width: 80%; 
 }
 
 .first-container h1 {
@@ -400,7 +412,7 @@ font-size: 2rem;
 }
 
 .first-highlight {
-color: #007bff; /* Adjust to your preferred blue */
+color: #007bff; 
 }
 
 .first-container p {
@@ -463,16 +475,16 @@ color: #ccc;
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
-  color: inherit; /* Ensures default text color */
-  text-decoration: none; /* Removes underline */
+  color: inherit; 
+  text-decoration: none; 
 }
 
 .faq-question:focus,
 .faq-question:hover {
-  color: inherit !important; /* Prevents color change on hover */
-  background: none !important; /* Prevents background color change */
-  outline: none !important; /* Removes focus outline */
-  text-decoration: none !important; /* Ensures no underline appears */
+  color: inherit !important; 
+  background: none !important; 
+  outline: none !important; 
+  text-decoration: none !important; 
 }
 
 .faq-icon {
@@ -516,7 +528,7 @@ color: #ccc;
   border-radius: 30px;
   margin-left: 10rem;
   padding: 10px 15px;
-  width: 400px; /* Adjust width as needed */
+  width: 400px;
 }
 
 /* Email Icon */
@@ -565,9 +577,9 @@ color: #ccc;
 }
 
 .foot_logo {
-  width: 200px; /* Keep the smaller size */
+  width: 200px; 
   height: auto;
-  margin-bottom: 20px; /* Adds space below the logo */
+  margin-bottom: 20px; 
 }
 
 
@@ -581,7 +593,7 @@ color: #ccc;
   font-weight: bold;
   color: white;
   position: absolute;
-  top: -40px; /* Moves it above the rest */
+  top: -40px; 
   transform: translateX(-50%);
 }
 
@@ -619,8 +631,8 @@ color: #ccc;
 
 .footer-bottom {
   display: flex;
-  justify-content: space-between; /* Pushes items to opposite ends */
-  align-items: center; /* Aligns items vertically */
+  justify-content: space-between; 
+  align-items: center; 
   padding: 15px 0px;
   font-size: 20px;
   gap: 33rem;
@@ -670,7 +682,7 @@ header {
 }
   /* Responsive Navbar */
   .hamburger {
-    display: none; /* Hidden by default */
+    display: none;
     cursor: pointer;
     font-size: 24px;
     color: white;
@@ -693,11 +705,11 @@ header {
 }
   @media (max-width: 768px) {
     .hamburger {
-      display: block; /* Show hamburger icon */
+      display: block; 
     }
   
     .nav-links {
-      display: none; /* Hide navbar links */
+      display: none; 
       position: absolute;
       top: 60px;
       left: 0;
@@ -710,11 +722,11 @@ header {
     }
   
     .nav-links.open {
-      display: flex; /* Show menu when open */
+      display: flex; 
     }
   
     .nav-links.closed {
-      display: none; /* Hide menu when closed */
+      display: none; 
     }
   
     .nav-links li {
@@ -722,7 +734,7 @@ header {
     }
   
     .social-icons {
-      display: none; /* Hide social icons on mobile */
+      display: none;
     }
   
     .navbar {
@@ -734,8 +746,8 @@ header {
 .footer-bottom {
   display: flex;
   flex-direction: column;
-  justify-content:start; /* Pushes items to opposite ends */
-  align-items: start; /* Aligns items vertically */
+  justify-content:start; 
+  align-items: start; 
   padding: 2em 0em 0em;
   gap: 0rem;
   color: white;
@@ -770,7 +782,7 @@ header {
   border-radius: 30px;
   margin-left: 0rem;
   padding: 10px 15px;
-  width: 100%; /* Adjust width as needed */
+  width: 100%;
  
 }
 
@@ -797,13 +809,12 @@ header {
  }
   
   .first-content {
-  max-width: 80%; /* Ensure text does not stretch too much */
+  max-width: 80%; 
   
 }
   
   .first-container h1 {
   padding: 0em 0em 0.3em 0em;
   }
-  
-  
+
 }
