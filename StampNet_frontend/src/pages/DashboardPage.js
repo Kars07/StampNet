@@ -187,11 +187,26 @@ const DashboardPage = () => {
 
             <div className="second">
                 <h3>Blockchain Data</h3>
-                <p>📄 Stored Hash: {storedHash || "Not Fetched"}</p>
+                
+                {storedHash && (
+                    <div className="hash-container">
+                        <p>📄 Stored Hash: <span className="hash-text">{storedHash.slice(0, 10)}...{storedHash.slice(-10)}</span></p>
+                        <button className="copy-button" onClick={() => navigator.clipboard.writeText(storedHash)}>📋 Copy</button>
+                    </div>
+                )}
+                
                 <p>🕒 Timestamp: {storedTimestamp || "Not Fetched"}</p>
+                
                 {isVerified !== null && <p>✅ Verification Result: {isVerified ? "Valid" : "Invalid"}</p>}
-                {transactionHash && <p>🔗 Transaction: {transactionHash}</p>}
+                
+                {transactionHash && (
+                    <div className="hash-container">
+                        <p>🔗 Transaction: <span className="hash-text">{transactionHash.slice(0, 10)}...{transactionHash.slice(-10)}</span></p>
+                        <button className="copy-button" onClick={() => navigator.clipboard.writeText(transactionHash)}>📋 Copy</button>
+                    </div>
+                )}
             </div>
+
         </div>
     );
 };

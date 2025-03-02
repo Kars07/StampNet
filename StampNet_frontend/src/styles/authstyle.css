@@ -280,7 +280,7 @@
     display: flex;
     align-items: center; 
     justify-content: space-around; 
-    gap: 60px; 
+    gap: 10px; 
     background: white;
     border: none;
     color: #000000b1;
@@ -295,10 +295,12 @@
     max-width: 400px;
 }
 
+
 .Authregister-logo {
     width: 25px;
     height: 25px;
-    vertical-align: middle; /* Helps with alignment */
+    margin-right: 10px;
+    vertical-align: middle; 
 }
 
 
@@ -314,10 +316,13 @@
     text-decoration: none;
     font-weight: bold;
 }
+
+
+
 @media (max-width:700px){
-    
+
 .Authregister-button.metamask {
-    gap: 20px; 
+    gap: 10px; 
     padding-right: 25px;
     
 }

@@ -59,7 +59,7 @@ const DashboardHeader = () => {
 
   // Truncate the wallet address for better display
   const getDisplayAddress = (address) => {
-    return address.length > 10 ? `${address.slice(0, 6)}...${address.slice(-4)}` : address;
+    return address && address.length > 10 ? `${address.slice(0, 6)}...${address.slice(-4)}` : address;
   };
 
   return (
@@ -81,7 +81,7 @@ const DashboardHeader = () => {
           {showDropdown && (
             <ul className="dropdown-menu">
               <p className="dropdown-header">
-                Signed in as <strong>{userEmail || walletAddress}</strong>
+                Signed in as <strong>{userEmail || getDisplayAddress(walletAddress)}</strong>
               </p>
               {!walletAddress ? (
                 <li onClick={connectMetaMask}>🔌 Connect Wallet</li>
