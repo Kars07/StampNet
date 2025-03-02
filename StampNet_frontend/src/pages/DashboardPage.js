@@ -164,7 +164,7 @@ const DashboardPage = () => {
             <div className="first">
                 <input type="file" onChange={handleFileChange} />
                 <h3>Choose a file or drag it here</h3>
-                {file && <p>Selected: {file.name}</p>}
+                {file && <p id="select-text">Selected: {file.name}</p>}
     
                 {hash && (
                     <div className="hash-container">
