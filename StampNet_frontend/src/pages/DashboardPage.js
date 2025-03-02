@@ -201,7 +201,7 @@ const DashboardPage = () => {
                 
                 {transactionHash && (
                     <div className="hash-container">
-                        <p>🔗 Transaction: <span className="hash-text">{transactionHash.slice(0, 10)}...{transactionHash.slice(-10)}</span></p>
+                        <p id="select-text">🔗 Transaction: <span className="hash-text">{transactionHash.slice(0, 10)}...{transactionHash.slice(-10)}</span></p>
                         <button className="copy-button" onClick={() => navigator.clipboard.writeText(transactionHash)}>📋 Copy</button>
                     </div>
                 )}
