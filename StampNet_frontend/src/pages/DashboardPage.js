@@ -20,9 +20,8 @@ const DashboardPage = () => {
     const [storedTimestamp, setStoredTimestamp] = useState("");
     const [isVerified, setIsVerified] = useState(null);
     const [walletAddress, setWalletAddress] = useState("");
-    // const provider = new ethers.providers.Web3Provider(window.ethereum);
+    
 
-    // Ensure storedHash updates properly on mobile
     useEffect(() => {
         console.log("Stored hash updated:", storedHash);
     }, [storedHash]);
