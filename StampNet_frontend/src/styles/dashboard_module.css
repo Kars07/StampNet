@@ -189,6 +189,10 @@ button:disabled {
     color: #ffffff;
 }
 
+.second .hash-container p{
+    color: black;
+}
+
 /* Arrow Indicator */
 .contents .arrow {
     color: blue;
