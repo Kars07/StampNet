@@ -42,6 +42,7 @@ border-radius: 20px;
 backdrop-filter: blur(48px);
 background-color: #f2f2f205;
 inset: 0%;
+height: 80px;
 box-shadow: inset -25.27px 25.27px 25.27px #ffffff05, inset 25.27px -25.27px 25.27px #a5a5a505;
 }
 
@@ -78,7 +79,7 @@ list-style: none;
 display: flex;
 gap: 30px;
 align-items: center;
-padding: 0;
+padding-top: 10px;
 margin: 0;
 }
 

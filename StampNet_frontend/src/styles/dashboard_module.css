@@ -40,6 +40,7 @@ body.dashboard-page {
 .dashboard-title {
     font-size: 1.5rem;
     font-weight: bold;
+    padding-bottom: 10px;
 }
 
 /* Right Section: Notifications + User */
@@ -97,9 +98,9 @@ body.dashboard-page {
     text-align: center;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
-    background-color: rgb(32, 43, 102);
+  
     border-radius: 10px;
-    background-color: rgba(20, 20, 30, 0.95);
+   
     -webkit-background-clip: border-box;
     background-clip: border-box;
     border: 3px solid rgba(0, 0, 255, 0.531);

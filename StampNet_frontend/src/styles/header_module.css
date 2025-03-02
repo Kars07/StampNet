@@ -18,7 +18,9 @@
     align-items: center;
     gap: 15px;
   }
-  
+  .left-section img{
+    width: 35px;
+  }
   .notification .bell-icon {
     font-size: 22px;
     color: #fff;

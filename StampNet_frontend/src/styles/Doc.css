@@ -1,49 +1,162 @@
-/* Docs.css */
-.docs-container {
-  max-width: 1200px;
-  margin: 0 auto;
+/* General Styles */
+.doc-container {
+  display: flex;
+  flex-direction: column;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 320px;
+  background: #333;
+  color: white;
   padding: 20px;
-  font-family: Arial, sans-serif;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+   
 }
 
-.docs-title {
-  font-size: 2rem;
-  font-weight: bold;
+/* Sidebar links */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #444;
+  transition:color 1s ease-out;
+}
+
+.sidebar li:hover {
+  color: #df33ce;
+}
+
+/* Content Section */
+.doc-content {
+  margin-left: 350px;
+  padding: 20px;
+  max-width: 900px;
+  
+}
+.doc-title{
   text-align: center;
-  margin-bottom: 20px;
+  padding: 1.5em 0em 1em;
+  
+}
+.doc-content h2{
+  font:600;
+  font-size: 20px;
+  padding: 2em 0em 1em;
+  
+
+}
+.doc-content  p, ul, ol{
+  padding: 0em 0em 3em;
+  font-size: 17px;
+  
+}
+.doc-intro{
+  text-align: center;
+  padding: 1em 0em;
+  display: flex;
+  flex-wrap: wrap;
+}
+.gradient-text-big {
+  background: linear-gradient(to right, #df33ce, #64b8dc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 28px;
 }
 
-.docs-content {
-  line-height: 1.6;
-  font-size: 1.1rem;
+.gradient-text {
+  background: linear-gradient(to right, #df33ce, #64b8dc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 17px;
 }
 
-.docs-content #notice {
-  color: rgba(0, 0, 255, 0.382);
+ul li{
+  padding: 2em 0em 0em;
+}
+ol li{
+  padding: 2em 0em 0em;
+}
+.doc-faq{
+  padding:0em 0em 1em;
+}
+.doc-faq p{
+  padding: 1em 0em;
+  font: 200;
+}
+.doc-faq h3{
+  font-size: 12px;
+  font: 50;
+  padding: 1em;
+}
+.api-container img{
+  width: 100%;
+  height: 200px;
+
+}
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width:70%;
+    background: transparent;
+    backdrop-filter: blur(50px);
+    padding: 4em 1em;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .menu-icon {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgb(8, 8, 37);
+    color: rgb(255, 255, 255);
+
+  }
+
+  .api-container img{
+    width: 200%;
+    align-items: center;
+  
+  }
+  .close-icon {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .doc-content {
+    margin-left: 0;
+    padding: 2em;
+  }
 }
 
-
-@media screen and (max-width: 768px) {
-  .docs-container {
-    padding: 15px;
-  }
-  .docs-title {
-    font-size: 1.8rem;
-  }
-  .docs-content {
-    font-size: 1rem;
-  }
-
-  .docs-content ul{
-    padding-left: 2rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .docs-title {
-    font-size: 1.5rem;
-  }
-  .docs-content {
-    font-size: 0.9rem;
+/* Hide icons on Desktop */
+@media (min-width: 769px) {
+  .menu-icon, .close-icon {
+    display: none;
   }
 }
