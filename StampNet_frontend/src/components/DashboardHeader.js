@@ -65,7 +65,7 @@ const DashboardHeader = () => {
   return (
     <div className="dashboard-header">
       <div className="left-section">
-        <i className="bx bx-menu menu-icon"></i>
+        <a href="/"><i className="bx bx-menu menu-icon"></i></a>
         <h1 className="dashboard-title">Dashboard</h1>
       </div>
 
