@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import "../styles/dashboard_module.css";
 import DashBoardHeader from "../components/DashboardHeader";
@@ -19,6 +19,17 @@ const DashboardPage = () => {
     const [storedTimestamp, setStoredTimestamp] = useState("");
     const [isVerified, setIsVerified] = useState(null);
     const [walletAddress, setWalletAddress] = useState("");
+
+    // Ensure storedHash updates properly on mobile
+    useEffect(() => {
+        console.log("Stored hash updated:", storedHash);
+    }, [storedHash]);
+
+    useEffect(() => {
+        if (storedHash) {
+            setTimeout(() => setStoredHash(storedHash), 100);
+        }
+    }, [storedHash]);
 
     // Function to handle file selection
     const handleFileChange = async (event) => {
@@ -62,10 +73,8 @@ const DashboardPage = () => {
         const ARBITRUM_SEPOLIA_CHAIN_ID = "0x66eee"; // Chain ID for Arbitrum Sepolia
 
         try {
-            // Get current network
             const currentChainId = await window.ethereum.request({ method: "eth_chainId" });
 
-            // If not on Arbitrum Sepolia, request network switch
             if (currentChainId !== ARBITRUM_SEPOLIA_CHAIN_ID) {
                 try {
                     await window.ethereum.request({
@@ -180,7 +189,6 @@ const DashboardPage = () => {
                 </div>
             </div>
 
-
             <div className="arrow">
                 <img src="/images/back-arrow-icon.png" alt="Back Arrow" />
             </div>
@@ -190,7 +198,7 @@ const DashboardPage = () => {
                 
                 {storedHash && (
                     <div className="hash-container">
-                        <p>📄 Stored Hash: <span className="hash-text">{storedHash.slice(0, 10)}...{storedHash.slice(-10)}</span></p>
+                        <p id="block-text">📄 Stored Hash: <span className="hash-text">{storedHash.slice(0, 10)}...{storedHash.slice(-10)}</span></p>
                         <button className="copy-button" onClick={() => navigator.clipboard.writeText(storedHash)}>📋 Copy</button>
                     </div>
                 )}
@@ -201,12 +209,11 @@ const DashboardPage = () => {
                 
                 {transactionHash && (
                     <div className="hash-container">
-                        <p id="select-text">🔗 Transaction: <span className="hash-text">{transactionHash.slice(0, 10)}...{transactionHash.slice(-10)}</span></p>
+                        <p id="block-text">🔗 Transaction: <span className="hash-text">{transactionHash.slice(0, 10)}...{transactionHash.slice(-10)}</span></p>
                         <button className="copy-button" onClick={() => navigator.clipboard.writeText(transactionHash)}>📋 Copy</button>
                     </div>
                 )}
             </div>
-
         </div>
     );
 };
