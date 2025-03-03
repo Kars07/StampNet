@@ -1,17 +1,21 @@
 import React from "react";
 import "../styles/styles.css"; // Import CSS file
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
     <footer class="footer">
         <hr className="footer-separator" />
-        <div class="subscribe">
+        <motion.div 
+         initial={{opacity:0 ,translateX:"100%"}}
+         whileInView={{opacity:1, translateX:0}}
+         transition={{duration:1}}class="subscribe">
             <div class="input-container">
                 <i class='bx bx-envelope'></i>
                 <input type="email" placeholder="Email address"/>
             </div>
             <button class="join-btn">Join us</button>
-        </div>
+        </motion.div>
         <div class="footer-content">
             <div class="footer-column">
                 <div className="footer-logo">
