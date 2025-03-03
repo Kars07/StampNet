@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react"; 
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -17,12 +17,27 @@ import Docs from "./components/Docs";
 import "./styles/global.css";
 import MyTimestamps from "./pages/MyTimestamps";
 import FirstSection from "./components/FirstSection";
+import { motion } from "framer-motion";
+import useMousePosition from "./useMousePosition";
 
 function App() {
+  const { x, y } = useMousePosition(); // ✅ Get mouse position
   return (
-    <Router>
-      <MainContent />
-    </Router>
+    <>
+    
+      {/* Custom Cursor */}
+      {/* Cursor Effect */}
+      <motion.div
+        className="custom-cursor"
+        animate={{ x: x - 20, y: y - 190 }} // ✅ Offset to center cursor
+        transition={{ type: "tween", ease: "backOut", duration: 0.05 }}
+      />
+
+      
+      <Router>
+        <MainContent />
+      </Router>
+    </>
   );
 }
 
@@ -36,7 +51,6 @@ const MainContent = () => {
 
   return (
     <>
-      {/* Show Navbar for non-auth, non-dashboard, non-my-timestamps, and non-docs pages */}
       {!isAuthPage && !isDashboard && !isMyTimestamps && !isDocsPage && <Navbar />}
 
       <div className="main-content">
@@ -54,7 +68,6 @@ const MainContent = () => {
               </>
             }
           />
-
           <Route
             path="/about-us"
             element={
@@ -64,11 +77,9 @@ const MainContent = () => {
               </>
             }
           />
-
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-
           <Route
             path="/dashboard"
             element={
@@ -78,7 +89,6 @@ const MainContent = () => {
               </DashboardLayout>
             }
           />
-          
           <Route path="/my-timestamps" element={<MyTimestamps />} />
           <Route path="/docs" element={<Docs />} />
         </Routes>

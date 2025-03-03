@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../styles/styles.css";
-
+import { motion } from "framer-motion";
 
 const faqData = [
   {
@@ -34,16 +34,21 @@ const FAQ = () => {
 
   return (
     <div className="faq-container">
-      <h2 className="faq-title">Frequently Asked Questions:</h2>
+      <h2 className="faq-title">Frequently Asked Questions:
+       </h2>
       <div className="faq-list">
         {faqData.map((faq, index) => (
-          <div key={index} className="faq-item">
+          <motion.div
+            initial={{opacity:0 ,translateX:"-100%"}}
+            whileInView={{opacity:1, translateX:0}}
+            transition={{duration:1}}
+           key={index} className="faq-item">
             <button className="faq-question" onClick={() => toggleFAQ(index)}>
               {faq.question}
               <span className="faq-icon">{openIndex === index ? "−" : "+"}</span>
             </button>
             {openIndex === index && <p className="faq-answer">{faq.answer}</p>}
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

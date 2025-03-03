@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/styles.css"; // Import CSS file
-
+import { motion } from "framer-motion";
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -28,8 +28,12 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-      <div className="navbar-content">
+      <motion.nav
+           initial={{opacity:0 ,translateY:"-100%"}}
+           whileInView={{opacity:1, translateY:0}}
+           transition={{duration:1}}
+         className={`navbar ${scrolled ? "scrolled" : ""}`}>
+       < div className="navbar-content">
           {/* Logo */}
           <div className="logo">
             <a href="/"><img className="navbar_logo" src="images/navbar_logo.png" alt="Logo" /></a>
@@ -58,7 +62,7 @@ const Navbar = () => {
             <a href="https://www.youtube.com/watch?v=sScVIg0nfC4&t=9s" target="_blank" rel="noopener noreferrer"><i className="bx bxl-youtube"></i></a>
           </div>
         </div>
-      </nav>
+      </motion.nav>
     </header>
   );
 };

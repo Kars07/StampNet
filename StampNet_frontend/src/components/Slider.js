@@ -36,7 +36,8 @@ const Slides = [
 
 const Slider = () => {
   return (
-    <div className="slide-container">
+    <div
+     className="slide-container">
       <div className="slide-wrapper">
         <h1>Why choose StampNet?</h1>
         <Swiper
