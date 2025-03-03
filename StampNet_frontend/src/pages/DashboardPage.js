@@ -137,7 +137,7 @@ async function storeDocumentHash() {
         // Optional UI update delay
         // setTimeout(() => {
         //     alert("✅ Hash stored on blockchain!");
-        // }, 100);
+        // }, 100); no need for alert, its causing ui issues on mobile
     } catch (error) {
         console.error("Blockchain error:", error);
     }
