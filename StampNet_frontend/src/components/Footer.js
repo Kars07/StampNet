@@ -36,9 +36,8 @@ const Footer = () => {
                 <h3>Support</h3>
                 <ul>
                     <li>Help Center</li>
-                    <li>Bug Bounty</li>
-                    <li>Press Kit</li>
-                    <li>Brand Guidelines</li>
+                    <li>Bug Fixes</li>
+                    <li>Results</li>
                 </ul>
             </div>
             <div class="footer-column">

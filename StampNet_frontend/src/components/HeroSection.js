@@ -39,7 +39,7 @@ const HeroSection = () => {
                 </div>
                 <div className='container-img'>
                    <div className='Image'>
-                    <img src="/images/user_photo-removebg-preview.png" width={500} />
+                    <img src="/images/user_photo-removebg-preview.png"/>
 
                    </div>
                 </div>
