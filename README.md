@@ -2,7 +2,21 @@
 
 ## Overview
 
-This is the repo that holds the main backend, Frontend and smartContract for Stampnet. It is a decentralized time-stamping system for documents built with Arbitrum using Stylus. It allows users to upload a file, video or any other media or enter text, generating a timestamped hash stored on the blockchain to prove the document's existence at a certain time without storing sensitive data.
+This is the repo that holds the main backend, Frontend and smartContract for Stampnet. StampNet is a decentralized time-stamping system for documents built with Arbitrum using Stylus. It allows users to upload a file, video or any other media or enter text, generating a timestamped hash stored on the blockchain to prove the document's existence at a certain time without storing sensitive data.
+
+## Features
+User Authentication: Secure login system allowing users to access the Stampnet dashboard for uploading of media.
+
+Landing Page: the home page of stampnet which contains the contents, slider, Frequently asked questions tab and a "Get Started button" which takes you Login using either google or metamask.
+
+Documentation Page: Browse and read through all the neccessarities needed to upload a document and also how to reach us.
+
+Dashboard Page: User interactive page that allows user to upload their media(videos,image,or douments), generates a hash key and then stores the hash on the blockchain and
+then verifies the document.
+
+Animations and slider: Css animations that make the app beautiful and creative.
+
+Social Links: Social links are very active. So feel free to contact us regarding any issues or questions....
 
 ## Prerequisites
 
@@ -11,6 +25,17 @@ Before starting, ensure you have the following installed:
 - [React.js](https://react.dev/) (version >=^19.0.0)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 - The other dependencies can be gotten in the package.json file within the frontend folder.
+
+## Tech Stack
+Frontend: React.js
+
+Backend: Node.js, Express.js
+
+DataBase: MongoDB
+
+Blockchain: Solidity, Arbitrum Sepolia Testnet
+
+Deployment: Vercel
 
 ## Getting Started
 
@@ -37,10 +62,18 @@ Before starting, ensure you have the following installed:
 This project is organized into the following structure:
 
 ```
+StampNet_contract/
+nitro-devnode
+.gitmodules
+README.md
+package-lock.json
+package.json
 node_modules/
+StamNet_frontend/
+│
 public/
 │
-├── images
+├── images/
 src/
 │
 ├── components/
@@ -52,6 +85,8 @@ src/
 ├── config/
 └── App.js
 ```
+
+##Contents of StampNet_Frontend
 
 ### 1. **`public/`**
    This folder contains the images folder where the pictures used on the app are kept. It also contains favicon.ico, index.html, manifest.json, robots.txt
@@ -70,7 +105,7 @@ If you're using testing libraries such as Jest or Mocha, you can run tests with:
 
 ## Code Style
 
-This project uses **Bootstrap** and **Boxicons** for code linting and Icons. You can check using:
+This project uses **React** and **Boxicons** for web3 interation and Icons. You can check using:
    ```bash
    npm install bootsrap boxicons
    ```
