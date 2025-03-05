@@ -9,7 +9,9 @@ User Authentication: Secure login system allowing users to access the Stampnet d
 
 Landing Page: the home page of stampnet which contains the contents, slider, Frequently asked questions tab and a "Get Started button" which takes you Login using either google or metamask.
 
-Documentation Page: Browse and read through all the neccessarities needed to upload a document and also how to reach us.
+AboutUs page: A page to show a little about the developers that created StampNet.. You can check it by clicking [StampNet AboutUs](https://stampnet.vercel.app/about-us)
+
+Documentation Page: Browse and read through all the neccessarities needed to upload a document and also how to reach us. [StampNet DocsPage](https://stampnet.vercel.app/docs)
 
 Dashboard Page: User interactive page that allows user to upload their media(videos,image,or douments), generates a hash key and then stores the hash on the blockchain and
 then verifies the document.
