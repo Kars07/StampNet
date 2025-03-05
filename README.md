@@ -105,9 +105,9 @@ If you're using testing libraries such as Jest or Mocha, you can run tests with:
 
 ## Code Style
 
-This project uses **React** and **Boxicons** for web3 interation and Icons. You can check using:
+This project uses **bootstrap** , **Boxicons** and **Swiper and Animations** for web3 interation ,Icons and Animations. You can check using:
    ```bash
-   npm install bootsrap boxicons
+   npm install bootstrap boxicons swiper 
    ```
 
 To auto-format the code:
