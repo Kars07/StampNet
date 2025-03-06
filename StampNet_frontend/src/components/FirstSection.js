@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/styles.css"; // Import CSS file
 import { motion } from "framer-motion";
+
 const FirstSection = () => {
   return (
     <motion.div 

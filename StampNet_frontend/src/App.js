@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import LastSection from "./components/LastSection";
+import SecondSection from "./components/SecondSection";
+import Features from "./components/Features";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
@@ -60,10 +62,12 @@ const MainContent = () => {
             element={
               <>
                 <HeroSection />
+                <SecondSection />
                 <FirstSection />
                 <Slider />
                 <LastSection />
                 <FAQ />
+                <Features />
                 <Footer />
               </>
             }
