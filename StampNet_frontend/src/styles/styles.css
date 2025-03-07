@@ -221,7 +221,6 @@ button {
   max-width: 50%;
   
 }
-
 .text-section #small {
   color: #ff67ff;
 }
@@ -239,10 +238,91 @@ button {
   margin-bottom: 3rem;
 }
 
+
 .highlight {
   color: #f8d03f;
   font-weight: bold;
 }
+
+/* Features styline */
+/* Features Section */
+.features {
+  padding: 5rem 10%;
+  text-align: center;
+}
+
+.features .heading {
+  color: #9b59b6;
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+/* Container Styling */
+.features-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+}
+
+/* Box Styling */
+.features-container .features-box {
+  background: #171821;
+  padding: 3rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  width: 320px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.features-container .features-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon Styling */
+.features-box i {
+  font-size: 4rem;
+  color: #8e44ad;
+  margin-bottom: 1rem;
+}
+
+/* Heading inside Box */
+.features-box h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+/* Description inside Box */
+.features-box .features-text {
+  font-size: 1rem;
+  color: #dcdcdc;
+  margin-bottom: 2rem;
+}
+
+/* Button Styling */
+.features-button {
+  background: linear-gradient(45deg, #8e44ad, #3498db);
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.features-button:hover {
+  background: linear-gradient(45deg, #3498db, #8e44ad);
+  transform: scale(1.1);
+}
+
 
 /* Button */
 .demo-btn {
@@ -412,6 +492,29 @@ padding: 50px 10%;
 color: white;
 text-align: left; 
 }
+
+.first-containers {
+  display: flex; 
+align-items: center;
+justify-content: space-between; 
+padding: 50px 10%;
+color: white;
+text-align: left; 
+}
+
+.first-contents {
+  max-width: 100%;
+  line-height: 1.5;
+}
+
+.first-containers h1 {
+  background: linear-gradient(to right, #df33ce, #64b8dc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  font-size: 2rem;
+  }
 
 .first-content {
 max-width: 80%; 
@@ -693,6 +796,33 @@ color: #ccc;
   display: none;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/* Tablets (Between 768px and 1024px) */
+@media screen and (max-width: 1024px) {
+  .features {
+    padding: 4rem 5%;
+  }
+  .features-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .features-container .features-box {
+    width: 280px;
+    height: 300px;
+  }
+}
+
 @media (max-width:650px){
 
 /* Header & Navbar */
@@ -842,5 +972,30 @@ header {
   }
   .custom-cursor{
     display: none;
+  }
+
+  .features {
+    padding: 3rem 5%;
+  }
+  .features .heading {
+    font-size: 2rem;
+  }
+  .features-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .features-container .features-box {
+    width: 90%;
+    height: auto;
+    padding: 2rem;
+  }
+  .features-box i {
+    font-size: 2.5rem;
+  }
+  .features-box h3 {
+    font-size: 1.3rem;
+  }
+  .features-box .features-text {
+    font-size: 0.95rem;
   }
 }
