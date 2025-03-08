@@ -16,43 +16,56 @@ import DashboardPage from "./pages/DashboardPage";
 import DashboardHeader from "./components/DashboardHeader";
 import FAQ from "./components/FAQ";
 import Docs from "./components/Docs";
-import "./styles/global.css";
 import MyTimestamps from "./pages/MyTimestamps";
 import FirstSection from "./components/FirstSection";
 import { motion } from "framer-motion";
 import useMousePosition from "./useMousePosition";
+import "./styles/global.css";
 
 function App() {
-  const { x, y } = useMousePosition(); // ✅ Get mouse position
   return (
-    <>
-    
-      {/* Custom Cursor */}
-      {/* Cursor Effect */}
-      <motion.div
-        className="custom-cursor"
-        animate={{ x: x - 20, y: y - 190 }} // ✅ Offset to center cursor
-        transition={{ type: "tween", ease: "backOut", duration: 0.05 }}
-      />
-
-      
-      <Router>
-        <MainContent />
-      </Router>
-    </>
+    <Router>
+      <MainContent />
+    </Router>
   );
 }
 
 const MainContent = () => {
   const location = useLocation();
+  const { x, y } = useMousePosition();
+  const [cursorSize, setCursorSize] = useState({ width: 40, height: 40 });
+
+  useEffect(() => {
+    const cursor = document.querySelector(".custom-cursor");
+    if (cursor) {
+      setCursorSize({
+        width: cursor.offsetWidth,
+        height: cursor.offsetHeight,
+      });
+    }
+  }, []);
+
   const authPages = ["/register", "/login", "/forgot-password"];
   const isAuthPage = authPages.includes(location.pathname);
   const isDashboard = location.pathname.startsWith("/dashboard");
   const isMyTimestamps = location.pathname === "/my-timestamps";
   const isDocsPage = location.pathname === "/docs";
+  const isHomePage = location.pathname === "/";
 
   return (
     <>
+      {/* Custom Cursor */}
+      <motion.div
+        className="custom-cursor"
+        animate={{
+          x: x - cursorSize.width / 2,
+          y: y - cursorSize.height / 2,
+          translateX: isHomePage ? "6px" : "0px", // Adjust transform for home page
+          translateY: isHomePage ? "-170px" : "0px"
+        }}
+        transition={{ type: "tween", ease: "backOut", duration: 0.05 }}
+      />
+
       {!isAuthPage && !isDashboard && !isMyTimestamps && !isDocsPage && <Navbar />}
 
       <div className="main-content">
