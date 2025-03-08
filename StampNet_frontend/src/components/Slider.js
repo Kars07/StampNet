@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -35,23 +35,31 @@ const Slides = [
 ];
 
 const Slider = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div
-     className="slide-container">
+    <div className="slide-container">
       <div className="slide-wrapper">
         <h1>Why choose StampNet?</h1>
         <Swiper
+          key={windowWidth} // Forces re-render on resize
           modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={30}
-          slidesPerView={3}
+          spaceBetween={20}
+          slidesPerView={3} // Default: 3 slides on large screens
           navigation
           pagination={{ clickable: true }}
           autoplay={{ delay: 3000 }}
           loop={true}
           breakpoints={{
-            1024: { slidesPerView: 3 },
-            768: { slidesPerView: 2 },
-            480: { slidesPerView: 1 },
+            1024: { slidesPerView: 3, spaceBetween: 20 }, // Laptops: 3 slides
+            768: { slidesPerView: 2, spaceBetween: 15 }, // Tablets: 2 slides
+            0: { slidesPerView: 1, spaceBetween: 10 }, // Mobile: 1 slide
           }}
         >
           {Slides.map((slide, index) => (

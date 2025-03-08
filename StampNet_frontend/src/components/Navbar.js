@@ -47,11 +47,10 @@ const Navbar = () => {
            {/* Navigation Links */}
            <ul className={`nav-links ${isMobile ? (menuOpen ? "open" : "closed") : ""}`}>
 
-            <li><a href="#">Products <i className="bx bx-chevron-down"></i></a></li>
+            <li><a href="#">products <i className="bx bx-chevron-down"></i></a></li>
             <li><a href="/docs">Docs</a></li>
-            <li><a href="#">Case Studies <i className="bx bx-chevron-down"></i></a></li>
             <li><a href="/about-us">About</a></li>
-            <li><a href="#">News</a></li>
+            <li><a href="/docs">News</a></li>
             <li><a href="/register" className="pass">Get a Pass</a></li>
           </ul>
 
