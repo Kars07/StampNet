@@ -232,59 +232,130 @@ async function storeDocumentHash() {
     
 
     return (
-        <div className="contents">
-            <DashBoardHeader connectWallet={connectWallet} walletAddress={walletAddress} />
+<div className="contents">
+                <DashBoardHeader connectWallet={connectWallet} walletAddress={walletAddress} />
 
-            <div className="first">
-                <input type="file" onChange={handleFileChange} />
-                <h3>Choose a file or drag it here</h3>
-                {file && <p id="select-text">Selected: {file.name}</p>}
-    
-                {hash && (
-                    <div className="hash-container">
-                        <p className="hash-text">{hash}</p>
-                        <button className="copy-button" onClick={() => navigator.clipboard.writeText(hash)}>📋 Copy</button>
+                <div className="first">
+                    <input type="file" onChange={handleFileChange} />
+                    
+                    {/* Upload Icon */}
+                    <div className="upload-icon">
+                        📁
                     </div>
-                )}
+                    
+                    <h3>Choose a file or drag it here</h3>
+                    <p style={{color: '#64748b', fontSize: '14px', marginBottom: '2em'}}>
+                        Upload your document to generate a cryptographic hash and store it on the blockchain
+                    </p>
+                    
+                    {file && (
+                        <div id="select-text">
+                            <span style={{color: '#3b82f6'}}>📄</span> Selected: {file.name}
+                        </div>
+                    )}
+        
+                    {hash && (
+                        <div className="hash-container" style={{marginTop: '1.5em'}}>
+                            <p style={{color: '#64748b', fontSize: '12px', marginBottom: '0.5em'}}>
+                                🔐 Generated Hash:
+                            </p>
+                            <p className="hash-text">{hash}</p>
+                            <button className="copy-button" onClick={() => navigator.clipboard.writeText(hash)}>
+                                📋 Copy
+                            </button>
+                        </div>
+                    )}
 
-                <div className="button-group">
-                    <button className="primary-button" onClick={storeDocumentHash} disabled={!hash}>Store Hash</button>
-                    {/* <button className="secondary-button" onClick={fetchStoredDocument}>Fetch Timestamp</button> */}
-                    <button className="tertiary-button" onClick={verifyDocument} disabled={!hash}>Verify Document</button>
+                    <div className="button-group">
+                        <button className="primary-button" onClick={storeDocumentHash} disabled={!hash}>
+                            <span style={{marginRight: '8px'}}>🔗</span>
+                            Store Hash on Blockchain
+                        </button>
+                        <button className="tertiary-button" onClick={verifyDocument} disabled={!hash}>
+                            <span style={{marginRight: '8px'}}>✅</span>
+                            Verify Document
+                        </button>
+                    </div>
+                </div>
+
+                <div className="arrow">
+                    <img src="/images/back-arrow-icon.png" alt="Process Flow" />
+                </div>
+
+                <div className="second">
+                    {/* Blockchain Icon */}
+                    <div className="blockchain-icon">
+                        ⛓️
+                    </div>
+                    
+                    <h3>Blockchain Data</h3>
+                    <p style={{color: '#64748b', fontSize: '14px', marginBottom: '2em'}}>
+                        Your document's digital fingerprint stored immutably on the blockchain
+                    </p>
+                    
+                    {storedHash && (
+                        <div className="hash-container">
+                            <p style={{color: '#64748b', fontSize: '12px', marginBottom: '0.5em'}}>
+                                📄 Stored Hash:
+                            </p>
+                            <p className="hash-text">{storedHash}</p>
+                            <button className="copy-button" onClick={() => navigator.clipboard.writeText(storedHash)}>
+                                📋 Copy
+                            </button>
+                        </div>
+                    )}
+                    
+                    {storedTimestamp && (
+                        <div style={{
+                            padding: '1em',
+                            background: 'rgba(30, 41, 59, 0.8)',
+                            borderRadius: '12px',
+                            border: '1px solid rgba(59, 130, 246, 0.2)',
+                            width: '100%'
+                        }}>
+                            <p style={{color: '#64748b', fontSize: '12px', marginBottom: '0.5em'}}>
+                                🕒 Timestamp:
+                            </p>
+                            <p style={{color: '#e2e8f0', fontFamily: 'Courier New, monospace'}}>
+                                {new Date(parseInt(storedTimestamp) * 1000).toLocaleString()}
+                            </p>
+                        </div>
+                    )}
+                    
+                    {isVerified !== null && (
+                        <div className={`status-indicator ${isVerified ? 'status-valid' : 'status-invalid'}`}>
+                            <span>{isVerified ? "✅" : "❌"}</span>
+                            Verification Result: {isVerified ? "Valid" : "Invalid"}
+                        </div>
+                    )}
+
+                    {transactionHash && (
+                        <div className="hash-container">
+                            <p style={{color: '#64748b', fontSize: '12px', marginBottom: '0.5em'}}>
+                                🔗 Transaction Hash:
+                            </p>
+                            <p className="hash-text">{transactionHash}</p>
+                            <button className="copy-button" onClick={() => navigator.clipboard.writeText(transactionHash)}>
+                                📋 Copy
+                            </button>
+                        </div>
+                    )}
+                    
+                    {!storedHash && !transactionHash && (
+                        <div style={{
+                            padding: '2em',
+                            textAlign: 'center',
+                            color: '#64748b',
+                            fontStyle: 'italic'
+                        }}>
+                            <p>No blockchain data yet</p>
+                            <p style={{fontSize: '12px', marginTop: '0.5em'}}>
+                                Upload and store a document to see blockchain information
+                            </p>
+                        </div>
+                    )}
                 </div>
             </div>
-
-            <div className="arrow">
-                <img src="/images/back-arrow-icon.png" alt="Back Arrow" />
-            </div>
-
-            <div className="second">
-                <h3>Blockchain Data</h3>
-                
-                {storedHash && (
-                    <div className="hash-container">
-                        <p id="block-text">📄 Stored Hash: <span className="hash-text">{storedHash.slice(0, 10)}...{storedHash.slice(-10)}</span></p>
-                        <button className="copy-button" onClick={() => navigator.clipboard.writeText(storedHash)}>📋 Copy</button>
-                    </div>
-                )}
-                
-                <p>🕒 Timestamp: {storedTimestamp || "Not Fetched"}</p>
-                
-                {isVerified !== null && (
-                   <p>
-                       {isVerified ? "✅ Verification Result: Valid" : "❌ Verification Result: Invalid"}
-                   </p>
-                )}
-
-                
-                {transactionHash && (
-                    <div className="hash-container">
-                        <p id="block-text">🔗 Transaction: <span className="hash-text">{transactionHash.slice(0, 10)}...{transactionHash.slice(-10)}</span></p>
-                        <button className="copy-button" onClick={() => navigator.clipboard.writeText(transactionHash)}>📋 Copy</button>
-                    </div>
-                )}
-            </div>
-        </div>
     );
 };
 
